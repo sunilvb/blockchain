@@ -1,0 +1,41 @@
+Add User
+POST
+/users
+{
+   "firstName" : "Marcos",
+   "lastName" : "Silva",
+   "email" : "marcos.henrique@toptal.com",
+   "password" : "s3cr3tp4sswo4rd"
+}
+===>
+<===
+{
+  "id": "5e73a09f2507af083700d1c2"
+}
+
+=====================================================================
+Change the permission in MongoDB for the user to level 7 and Not 1
+Do Authorization (this is the login)
+POST
+/auth
+{
+   "email" : "sunilvb@gmail.com",
+   "password" : "sunder74"
+}
+
+curl -H "Content-Type: application/json" -X POST -d '{"email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/auth/
+
+===>
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTczYTA3YzI1MDdhZjA4MzcwMGQxYzAiLCJlbWFpbCI6Im1hcmNvcy5oZW5yaXF1ZUB0b3B0YWwuY29tIiwicGVybWlzc2lvbkxldmVsIjo3LCJwcm92aWRlciI6ImVtYWlsIiwibmFtZSI6Ik1hcmNvcyBTaWx2YSIsInJlZnJlc2hLZXkiOiJjWXN2R1JlTFhPR1R0RDdMdUxDalFRPT0iLCJpYXQiOjE1ODQ2Mzc4Nzd9.kmTu2Kv2ztI1yTzW6otwEhphwmKINTN_WST0P8UH4mo",
+  "refreshToken": "eGQ4WkpvSXozL0hsWmtBdjJuOXZlVElISzFlcERjZHJXc3JzQnBaU3R5bmFvc0FwdFhheFBNZ3FxM0RUTTQzRkZlK1Z6SGVER2lyZTEwOVBrd05Damc9PQ=="
+}
+
+=====================================================================
+GET User List
+GET
+/users
+/users/:userid:
+Add 2 Header Objects
+Content-type : application/json
+Authorization : Bearer <accessToken>
