@@ -3,12 +3,18 @@ This is sample application that illustrates how one could use Blockchain and Dis
 
 ## Security
 
-### Only authorized actors have the ability to update the data in the Blockchain.
+Only authorized actors have the ability to update the data in the Blockchain.
 
 ## Transparency
 
-### Show when and who updated the data in the Blockchain.
+Show when and who updated the data in the Blockchain.
 
 ## Auditability
 
-### Every member of the Blockchain can audit the data and once the data is committed there, it cannot be changed (immutability) in the Ledger.
+Every member of the Blockchain can audit the data and once the data is committed there, it cannot be changed (immutability) in the Ledger.
+
+## Tech stack
+- JavaScript / NodeJS
+- HyperLedger v2.0
+- Docker
+- MongoDB
