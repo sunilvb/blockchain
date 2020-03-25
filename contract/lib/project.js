@@ -14,7 +14,7 @@ const cpState = {
     FUNDED: 2,
     STARTED: 3,
     EXECUTING: 4,
-    FINALIZING: 5
+    FINALIZING: 5,
     COMPLETED: 6
 };
 
