@@ -1,0 +1,34 @@
+cd fabric-samples/commercial-paper
+./network-clean.sh
+
+./network-starter.sh
+
+cd organization/magnetocorp
+
+source magnetocorp.sh
+
+peer lifecycle chaincode package cp.tar.gz --lang node --path ./contract --label cp_0
+
+peer lifecycle chaincode install cp.tar.gz
+
+peer lifecycle chaincode queryinstalled
+
+export PACKAGE_ID=
+
+peer lifecycle chaincode approveformyorg --orderer localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name papercontract -v 0 --package-id $PACKAGE_ID --sequence 1 --tls --cafile $ORDERER_CA
+
+cd ../digibank/
+
+source digibank.sh
+
+peer lifecycle chaincode package cp.tar.gz --lang node --path ./contract --label cp_0
+
+peer lifecycle chaincode install cp.tar.gz
+
+peer lifecycle chaincode queryinstalled
+
+export PACKAGE_ID=
+
+peer lifecycle chaincode approveformyorg --orderer localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name papercontract -v 0 --package-id $PACKAGE_ID --sequence 1 --tls --cafile $ORDERER_CA
+
+docker ps

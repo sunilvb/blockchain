@@ -1,1 +1,26 @@
 sudo kill $(sudo lsof -t -i:3000)
+
+Git Commands:
+
+# This is an optional step
+echo "# Title of the Project" >> README.md
+
+# This is only needed the first time
+git init
+
+# This step is needed every time a file needs to be updated in the repo
+# You can use "git add *" to update everything
+git add README.md
+git commit -m "first commit"
+
+#This is only needed the first time
+git remote add origin https://github.com/sunilvb/<repo-name>.git
+
+#This step is needed every time a file needs to be updated in the repo
+git push -u origin master
+
+# example sctipr that can be run ever time after initial set up:
+
+git add *
+git commit -m "latest commit"
+git push -u origin master

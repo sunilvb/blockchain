@@ -14,7 +14,9 @@ POST
 }
 
 =====================================================================
-Change the permission in MongoDB for the user to level 7 and Not 1
+Change the permission in MongoDB for the user to level 7.
+Default value is 1 , when user is created.
+=====================================================================
 Do Authorization (this is the login)
 POST
 /auth
