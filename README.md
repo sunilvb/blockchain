@@ -22,3 +22,17 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 - HyperLedger v2.0
 - Docker
 - MongoDB
+
+cd fabric-samples/commercial-paper
+cp /home/ec2-user/mywork/fabric_commands.txt dorun.sh
+bash dorun.sh
+
+docker run --publish 27017:27017 --detach --name my-mongo mongo:latest
+cd /home/ec2-user/mywork/middleware/
+npm install
+npm start
+curl -H "Content-Type: application/json" -X POST -d '{"firstName" : "Sunil","lastName" : "Vishnu","email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/users/
+cd ../web_spa
+npm install
+
+=>

@@ -2,12 +2,13 @@ Add User
 POST
 /users
 {
-   "firstName" : "Marcos",
-   "lastName" : "Silva",
-   "email" : "marcos.henrique@toptal.com",
-   "password" : "s3cr3tp4sswo4rd"
+   "firstName" : "Sunil",
+   "lastName" : "Vishnu",
+   "email" : "sunilvb@gmail.com",
+   "password" : "sunder74"
 }
 ===>
+curl -H "Content-Type: application/json" -X POST -d '{"firstName" : "Sunil","lastName" : "Vishnu","email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/users/
 <===
 {
   "id": "5e73a09f2507af083700d1c2"
@@ -33,7 +34,7 @@ curl -H "Content-Type: application/json" -X POST -d '{"email":"sunilvb@gmail.com
   "refreshToken": "eGQ4WkpvSXozL0hsWmtBdjJuOXZlVElISzFlcERjZHJXc3JzQnBaU3R5bmFvc0FwdFhheFBNZ3FxM0RUTTQzRkZlK1Z6SGVER2lyZTEwOVBrd05Damc9PQ=="
 }
 
-=====================================================================
+=====================================================================npm start
 GET User List
 GET
 /users
