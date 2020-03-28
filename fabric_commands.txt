@@ -5,6 +5,10 @@
 #
 # ==============================================================================
 
+SOURCE_DIR='/home/ec2-user/environment/blockchain/contract/'
+TARGET_DIR='organization/magnetocorp/'
+TARGET_DIR2='organization/digibank/'
+
 function gonogo
 {
   read -p "Do you like what you see? Press Y/y to continue:" -n 1 -r
@@ -29,11 +33,13 @@ function remove_contract
 
 function copy_contract
 {
- cp -r /home/ec2-user/environment/blockchain/contract/ organization/magnetocorp/ 
- ls -l organization/magnetocorp/contract/
- cp -r /home/ec2-user/environment/blockchain/contract/ organization/digibank/
- ls -l organization/digibank/contract/
+ cp -r $SOURCE_DIR $TARGET_DIR
+ ls -l $TARGET_DIR/contract/
+ cp -r $SOURCE_DIR $TARGET_DIR2
+ ls -l $TARGET_DIR2/contract/
  
+ [ -d $SOURCE_DIR ] && echo "Directory $SOURCE_DIR exists." || echo "Error: Directory $SOURCE_DIR does not exists."
+
  gonogo
  
 }
