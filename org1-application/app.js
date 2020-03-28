@@ -92,7 +92,7 @@ router.get('/', async(req, res) =>{
         // issue commercial paper
         console.log('Submit commercial paper issue transaction.');
 
-        const issueResponse = await contract.submitTransaction('create', 'MagnetoCorp', '00001', '2020-05-31', '2020-11-30', '5000000');
+        const issueResponse = await contract.submitTransaction('create', 'BigHeartCorp', '00001', '2020-05-31', '2020-11-30', '5000000');
 
         // process response
         console.log('Process issue transaction response.'+issueResponse);
@@ -118,12 +118,6 @@ router.get('/', async(req, res) =>{
     res.json({ message: 'apiW Done...!' });   
 });
 
-// more routes for our API will happen here
 
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
 app.use('/api', router);
-
-
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
