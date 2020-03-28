@@ -23,28 +23,28 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 - Docker
 - MongoDB
 
-STEP-1
-------
+### STEP-1
+
 cd fabric-samples/commercial-paper
 cp /home/ec2-user/mywork/fabric_commands.txt dorun.sh
 bash dorun.sh
 
-STEP-2
-------
+### STEP-2
+
 docker run --publish 27017:27017 --detach --name my-mongo mongo:latest
 cd /home/ec2-user/mywork/middleware/
 npm install
 npm start &
 curl -H "Content-Type: application/json" -X POST -d '{"firstName" : "Sunil","lastName" : "Vishnu","email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/users/
 
-Step-3
-------
+### Step-3
+
 cd ../web_spa
 npm install
 vi .env # copy the config values
 vi public/js/app.js # update the url to api (not localhost if using public host)
 
-Step-4
+### Step-4
 
 cp -r ../org1-application /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/
 ls -l /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/org1-application
@@ -54,8 +54,8 @@ npm install
 node addToWallet.js
 cp 
 
-Step-last
----------
+### Step-last
+
 cleanup
 
 docker stop <mongo ct it>
