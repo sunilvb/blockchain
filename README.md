@@ -25,9 +25,9 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 
 ### STEP-1
 
-cd fabric-samples/commercial-paper
-cp /home/ec2-user/mywork/fabric_commands.txt dorun.sh
-bash dorun.sh
+- cd fabric-samples/commercial-paper
+- cp /home/ec2-user/mywork/fabric_commands.txt dorun.sh
+- bash dorun.sh
 
 ### STEP-2
 
