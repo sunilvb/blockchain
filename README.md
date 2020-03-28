@@ -13,6 +13,8 @@ Show when and who updated the data in the Blockchain.
 
 Every member of the Blockchain can audit the data and once the data is committed there, it cannot be changed (immutability) in the Ledger.
 
+## Trust
+
 ## Tech stack
 - JavaScript / NodeJS
 - HyperLedger v2.0
