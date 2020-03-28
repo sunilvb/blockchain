@@ -1,3 +1,10 @@
+# ==============================================================================
+#
+# Utility script to be run from ./fabric-samples/commercial-paper/ folder only
+#
+#
+# ==============================================================================
+
 function gonogo
 {
   read -p "Do you like what you see? Press Y/y to continue:" -n 1 -r
@@ -9,53 +16,81 @@ function gonogo
   fi
 }
 
-cd fabric-samples/commercial-paper
-./network-clean.sh
+function remove_contract
+{
+  rm -r organization/magnetocorp/contract
+  ls -l organization/magnetocorp/
+  rm -r organization/digibank/contract
+  ls -l organization/digibank/
+  
+  gonogo
+  
+}
+
+function copy_contract
+{
+ cp -r /home/ec2-user/environment/blockchain/contract/ organization/magnetocorp/ 
+ ls -l organization/magnetocorp/contract/
+ cp -r /home/ec2-user/environment/blockchain/contract/ organization/digibank/
+ ls -l organization/digibank/contract/
+ 
+ gonogo
+ 
+}
+
+function run_install
+{
+  
+  peer lifecycle chaincode package cp.tar.gz --lang node --path ./contract --label cp_0
+  
+  ls -l
+  
+  peer lifecycle chaincode install cp.tar.gz
+  
+  peer lifecycle chaincode queryinstalled > sample.txt
+  
+  peer lifecycle chaincode queryinstalled
+  
+  sed -ne '/Package /s/.*ID: \([^"]*\),.*/\1/p' sample.txt > ss.txt
+  while read LINE; do export PACKAGE_ID="$LINE"; done < ss.txt
+  
+  echo PACKAGE_ID=$PACKAGE_ID
+  
+  gonogo
+  
+  peer lifecycle chaincode approveformyorg --orderer localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name papercontract -v 0 --package-id $PACKAGE_ID --sequence 1 --tls --cafile $ORDERER_CA
+
+}
+
+# ==============================================================================
+
+remove_contract
+
+copy_contract
 
 ./network-starter.sh
 
-cd organization/magnetocorp
+docker ps
+echo "Total Running Containers =>"
+docker ps -q $1 | wc -l
 
-source magnetocorp.sh
+source /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/magnetocorp.sh
 
-peer lifecycle chaincode package cp.tar.gz --lang node --path ./contract --label cp_0
+run_install
 
-ls -l
-
-peer lifecycle chaincode install cp.tar.gz
-
-peer lifecycle chaincode queryinstalled > sample.txt
-
-peer lifecycle chaincode queryinstalled
-
-sed -ne '/Package /s/.*ID: \([^"]*\),.*/\1/p' sample.txt > ss.txt
-while read LINE; do export PACKAGE_ID="$LINE"; done < ss.txt
-
-echo PACKAGE_ID=$PACKAGE_ID
+rm /home/ec2-user/fabric-samples/commercial-paper/organization/digibank/cp.tar.gz
+ls -l /home/ec2-user/fabric-samples/commercial-paper/organization/digibank/
+cp /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/cp.tar.gz /home/ec2-user/fabric-samples/commercial-paper/organization/digibank/
+ls -l /home/ec2-user/fabric-samples/commercial-paper/organization/digibank/
 
 gonogo
 
-peer lifecycle chaincode approveformyorg --orderer localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name papercontract -v 0 --package-id $PACKAGE_ID --sequence 1 --tls --cafile $ORDERER_CA
-===============
-rm ../digibank/cp.tar.gz
-ls -l ../digibank/
-cp cp.tar.gz ../digibank/
-ls -l ../digibank/
-===============
+source /home/ec2-user/fabric-samples/commercial-paper/organization/digibank/digibank.sh
 
-cd ../digibank/
+run_install
 
-source digibank.sh
-
-peer lifecycle chaincode package cp.tar.gz --lang node --path ./contract --label cp_0
-
-peer lifecycle chaincode install cp.tar.gz
-
-peer lifecycle chaincode queryinstalled
-
-export PACKAGE_ID=
-
-peer lifecycle chaincode approveformyorg --orderer localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name papercontract -v 0 --package-id $PACKAGE_ID --sequence 1 --tls --cafile $ORDERER_CA
-
-=============
 peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --peerAddresses localhost:7051 --tlsRootCertFiles ${PEER0_ORG1_CA} --peerAddresses localhost:9051 --tlsRootCertFiles ${PEER0_ORG2_CA} --channelID mychannel --name papercontract -v 0 --sequence 1 --tls --cafile $ORDERER_CA --waitForEvent
+
+docker ps
+echo "Total Running Containers =>"
+docker ps -q $1 | wc -l

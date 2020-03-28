@@ -9,7 +9,7 @@ const StateList = require('./../ledger-api/statelist.js');
 
 const CharityProject = require('./project.js');
 
-class PaperList extends StateList {
+class ProjectList extends StateList {
 
     constructor(ctx) {
         super(ctx, 'org.charitably.charityprojectlist');

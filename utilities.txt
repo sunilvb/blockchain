@@ -24,3 +24,36 @@ git push -u origin master
 git add *
 git commit -m "latest commit"
 git push -u origin master
+
+
+function countContainers() {
+	docker ps -q $1 | wc -l
+	docker images -q $1 | wc -l
+	docker rmi <image> -f
+}
+
+function countCrashedContainers() {
+	docker ps -a | grep -v -F 'Exited (0)' | grep -c -F 'Exited ('
+}
+
+TYPE=${1-all}
+
+case $TYPE in
+	running) COUNT_FUNCTION="countContainers"; shift;;
+	crashed) COUNT_FUNCTION="countCrashedContainers"; shift;;
+	all) COUNT_FUNCTION="countContainers -a"; shift;;
+esac
+
+$COUNT_FUNCTION
+
+cp /home/ec2-user/environment/blockchain/fabric_commands.txt dorun.sh
+
+docker network ls
+docker stop
+docker run --name my-mongo -d mongo:latest 
+docker run --publish 27017:27017 --detach --name my-mongo mongo:latest
+
+docker network connect <network-name> <container-name>
+
+docker run -itd --network=<network-name> <container-name>
+eg: docker run -itd --network=multi-host-network busybox

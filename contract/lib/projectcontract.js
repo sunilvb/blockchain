@@ -17,12 +17,12 @@ SPDX-License-Identifier: Apache-2.0
 // Fabric smart contract classes
 const { Contract, Context } = require('fabric-contract-api');
 
-// PaperNet specifc classes
+// projectNet specifc classes
 const CharityProject = require('./project.js');
 const ProjectList = require('./projectlist.js');
 
 /**
- * A custom context provides easy access to list of all commercial papers
+ * A custom context provides easy access to list of all commercial projects
  */
 class CharityProjectContext extends Context {
 
@@ -67,15 +67,15 @@ class CharityProjectContract extends Contract {
      * Create Charity Project
      *
      * @param {Context} ctx the transaction context
-     * @param {String} owner commercial paper issuer
-     * @param {Integer} projectNumber paper number for this issuer
-     * @param {String} startDateTime paper issue date
-     * @param {String} endDateTime paper maturity date
-     * @param {Integer} projectCost face value of paper
+     * @param {String} owner commercial project issuer
+     * @param {Integer} projectNumber project number for this issuer
+     * @param {String} startDateTime project issue date
+     * @param {String} endDateTime project maturity date
+     * @param {Integer} projectCost face value of project
     */
     async create(ctx, owner, projectNumber, startDateTime, endDateTime, projectCost) {
 
-        // create an instance of the paper
+        // create an instance of the project
         let project = CharityProject.createInstance(owner, projectNumber, startDateTime, endDateTime, projectCost);
 
         // Smart contract, rather than project, moves project into CREATED state
@@ -85,7 +85,7 @@ class CharityProjectContract extends Contract {
         project.setOwner(owner);
 
         // Add the project to the list of all similar charity projects in the ledger world state
-        await ctx.projectList.addPaper(project);
+        await ctx.projectList.addProject(project);
 
         // Must return a serialized project to caller of smart contract
         return project;
@@ -100,7 +100,7 @@ class CharityProjectContract extends Contract {
      * @param {String} auditor current auditor of project
      * @param {String} bebeficiary new bebeficiary of project
      * @param {Integer} amount amount paid for this phase of the project
-     * @param {String} actualStartDateTime time paper was purchased (i.e. traded)
+     * @param {String} actualStartDateTime time project was purchased (i.e. traded)
     */
     async start(ctx, owner, projectNumber, auditor, bebeficiary, amount, actualStartDateTime) {
 
@@ -123,13 +123,13 @@ class CharityProjectContract extends Contract {
     }
 
     /**
-     * Redeem commercial paper
+     * Redeem commercial project
      *
      * @param {Context} ctx the transaction context
-     * @param {String} issuer commercial paper issuer
-     * @param {Integer} paperNumber paper number for this issuer
-     * @param {String} redeemingOwner redeeming owner of paper
-     * @param {String} redeemDateTime time paper was redeemed
+     * @param {String} issuer commercial project issuer
+     * @param {Integer} projectNumber project number for this issuer
+     * @param {String} redeemingOwner redeeming owner of project
+     * @param {String} redeemDateTime time project was redeemed
     */
     async finish(ctx, owner, projectNumber, redeemingOwner, redeemDateTime) {
 
@@ -150,4 +150,4 @@ class CharityProjectContract extends Contract {
 
 }
 
-module.exports = CommercialPaperContract;
+module.exports = CharityProjectContract;
