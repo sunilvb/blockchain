@@ -14,7 +14,8 @@ git add README.md
 git commit -m "first commit"
 
 #This is only needed the first time
-git remote add origin https://github.com/sunilvb/<repo-name>.git
+git clone git@github.com:sunilvb/blockchain.git .
+git remote add origin https://github.com/sunilvb/blockchain.git
 
 #This step is needed every time a file needs to be updated in the repo
 git push -u origin master
@@ -50,7 +51,7 @@ cp /home/ec2-user/environment/blockchain/fabric_commands.txt dorun.sh
 
 docker network ls
 docker stop
-docker run --name my-mongo -d mongo:latest 
+docker run --name my-mongo -d mongo:latest
 docker run --publish 27017:27017 --detach --name my-mongo mongo:latest
 
 docker network connect <network-name> <container-name>
