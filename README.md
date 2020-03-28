@@ -1,13 +1,13 @@
-# Blockchain
-This is sample application that illustrates how one could use Blockchain and Distributed Ledger Technology in the charity space with the following features:
+# Charitably.us
+This is sample application that illustrates how one could use Blockchain and Distributed Ledger Technology (DLT) for building an online charity platform with the following features:
 
 ## Security
 
-Only authorized actors have the ability to update the data in the Blockchain.
+Only authorized actors have the ability to update the data in the Blockchain. Hence a private blockchain.
 
 ## Transparency
 
-Show when and who updated the data in the Blockchain.
+For all authorised users, show when and who updated the data in the Blockchain.
 
 ## Auditability
 
@@ -16,6 +16,10 @@ Every member of the Blockchain can audit the data and once the data is committed
 ## Trust
 
 With DLT and Blockchain, trus is built-in, you have your copy of the ledger that is immutable accross all the member copies.
+
+## Features
+
+## Architecture  
 
 ## Tech stack
 - JavaScript / NodeJS
