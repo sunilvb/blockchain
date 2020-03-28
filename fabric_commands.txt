@@ -5,7 +5,7 @@
 #
 # ==============================================================================
 
-SOURCE_DIR='/home/ec2-user/environment/blockchain/contract/'
+SOURCE_DIR='/home/ec2-user/mywork/contract/'
 TARGET_DIR='organization/magnetocorp/'
 TARGET_DIR2='organization/digibank/'
 
@@ -27,20 +27,24 @@ function remove_contract
   rm -r organization/digibank/contract
   ls -l organization/digibank/
   
+  echo "Remove contract folder done ...."
+
   gonogo
   
 }
 
 function copy_contract
 {
- cp -r $SOURCE_DIR $TARGET_DIR
- ls -l $TARGET_DIR/contract/
- cp -r $SOURCE_DIR $TARGET_DIR2
- ls -l $TARGET_DIR2/contract/
- 
- [ -d $SOURCE_DIR ] && echo "Directory $SOURCE_DIR exists." || echo "Error: Directory $SOURCE_DIR does not exists."
+  cp -r $SOURCE_DIR $TARGET_DIR
+  ls -l $TARGET_DIR/contract/
+  cp -r $SOURCE_DIR $TARGET_DIR2
+  ls -l $TARGET_DIR2/contract/
+  
+  [ -d $SOURCE_DIR ] && echo "Directory $SOURCE_DIR exists." || echo "Error: Directory $SOURCE_DIR does not exists."
 
- gonogo
+  echo "Copy contract folder done ...."
+
+  gonogo
  
 }
 
