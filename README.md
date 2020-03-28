@@ -15,6 +15,8 @@ Every member of the Blockchain can audit the data and once the data is committed
 
 ## Trust
 
+With DLT and Blockchain, trus is built-in, you have your copy of the ledger that is immutable accross all the member copies.
+
 ## Tech stack
 - JavaScript / NodeJS
 - HyperLedger v2.0
