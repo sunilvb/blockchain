@@ -31,34 +31,34 @@ bash dorun.sh
 
 ### STEP-2
 
-docker run --publish 27017:27017 --detach --name my-mongo mongo:latest
-cd /home/ec2-user/mywork/middleware/
-npm install
-npm start &
-curl -H "Content-Type: application/json" -X POST -d '{"firstName" : "Sunil","lastName" : "Vishnu","email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/users/
+- docker run --publish 27017:27017 --detach --name my-mongo mongo:latest
+- cd /home/ec2-user/mywork/middleware/
+- npm install
+- npm start &
+- curl -H "Content-Type: application/json" -X POST -d '{"firstName" : "Sunil","lastName" : "Vishnu","email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/users/
 
 ### Step-3
 
-cd ../web_spa
-npm install
-vi .env # copy the config values
-vi public/js/app.js # update the url to api (not localhost if using public host)
+- cd ../web_spa
+- npm install
+- vi .env # copy the config values
+- vi public/js/app.js # update the url to api (not localhost if using public host)
 
 ### Step-4
 
-cp -r ../org1-application /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/
-ls -l /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/org1-application
+- cp -r ../org1-application /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/
+- ls -l /home/ec2-user/fabric-samples/commercial-paper/organization/magnetocorp/org1-application
 
 
-npm install
-node addToWallet.js
-cp 
+- npm install
+- node addToWallet.js
+- cp 
 
 ### Step-last
 
 cleanup
 
-docker stop <mongo ct it>
-docker rm /my-mongo
+- docker stop <mongo ct it>
+- docker rm /my-mongo
 
 =>
