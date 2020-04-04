@@ -181,6 +181,15 @@ window.addEventListener('load', () => {
 
       localStorage.setItem("accessToken", accessToken);
       const html = welcomeTemplate({ accessToken, refreshToken });
+      /*
+      {
+        projects : [
+          {title:'Project 1',location:'Atlanta, GA',description:'Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.'},
+          
+          {title:'Project 2',location:'New York, NY',description:'Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.'}
+        ]
+      }
+      */
       $('#result').html(`${accessToken} ${refreshToken}`);
       el.html(html);
       $('#rrmenu').html(`<a class='item' href='/logout'>Logout</a>`);

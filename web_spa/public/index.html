@@ -194,12 +194,23 @@
 
     <!-- Welcom Template -->
     <script id="welcome-template" type="text/x-handlebars-template">
-      <h1 class="ui header">Welcome <logged-in User> </h1>
+      <h1 class="ui header">Browse Projects </h1>
         <hr>
         <div id="result-segment" class="ui center aligned segment">
-          <h2 id="result" class="ui header">
+          <h3 id="result" class="ui header">
             accessToken <span>{{accessToken}}</span> refreshToken <span>{{refreshToken}}</span>
-          </h2>
+          </h3>
+
+          
+          {{#each projects}}
+          <div class="ui piled segment">
+            <h4 class="ui header">{{title}}</h4>
+            <h4 class="ui header">{{location}}</h4>
+            <p>{{description}}</p>
+             
+          </div>
+          {{/each}}
+            
         </div>
       </script>
 

@@ -26,6 +26,15 @@ git add *
 git commit -m "latest commit"
 git push -u origin master
 
+git pull origin master
+
+===================================================================================
+
+Kill a process running on port 3000
+
+sudo kill $(sudo lsof -t -i:3000)
+
+===================================================================================
 
 function countContainers() {
 	docker ps -q $1 | wc -l
