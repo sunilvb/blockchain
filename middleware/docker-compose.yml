@@ -11,9 +11,7 @@ services:
       - mongo
 
   mongo:
-    image: mongo
-    volumes:
-      - ./data:/data/db
+    image: mongo:latest
     networks:
       - backend
     ports:

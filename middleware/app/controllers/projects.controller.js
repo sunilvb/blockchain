@@ -43,6 +43,12 @@ exports.patchById = (req, res) => {
         });
 
 };
+exports.getByCompany = (req, res) => {
+    ProjectModel.findByCompany(req.params.company)
+        .then((result) => {
+            res.status(200).send(result);
+        });
+};
 
 exports.removeById = (req, res) => {
     ProjectModel.removeById(req.params.projectId)

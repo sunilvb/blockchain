@@ -30,9 +30,11 @@ curl -H "Content-Type: application/json" -X POST -d '{"email":"sunilvb@gmail.com
 
 ===>
 {
-  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTczYTA3YzI1MDdhZjA4MzcwMGQxYzAiLCJlbWFpbCI6Im1hcmNvcy5oZW5yaXF1ZUB0b3B0YWwuY29tIiwicGVybWlzc2lvbkxldmVsIjo3LCJwcm92aWRlciI6ImVtYWlsIiwibmFtZSI6Ik1hcmNvcyBTaWx2YSIsInJlZnJlc2hLZXkiOiJjWXN2R1JlTFhPR1R0RDdMdUxDalFRPT0iLCJpYXQiOjE1ODQ2Mzc4Nzd9.kmTu2Kv2ztI1yTzW6otwEhphwmKINTN_WST0P8UH4mo",
-  "refreshToken": "eGQ4WkpvSXozL0hsWmtBdjJuOXZlVElISzFlcERjZHJXc3JzQnBaU3R5bmFvc0FwdFhheFBNZ3FxM0RUTTQzRkZlK1Z6SGVER2lyZTEwOVBrd05Damc9PQ=="
+  "accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTg4ZjAyNjYyMjAxNDIwZmM4Y2YwZWUiLCJlbWFpbCI6InN1bmlsdmJAZ21haWwuY29tIiwicGVybWlzc2lvbkxldmVsIjoxLCJwcm92aWRlciI6ImVtYWlsIiwibmFtZSI6IlN1bmlsIFZpc2hudSIsInJlZnJlc2hLZXkiOiJqUTg0Q2RJNFI4S0NMRDYwM0ZxazRnPT0iLCJpYXQiOjE1ODYwMzMxNTF9.Obc1JT066QzWEuW3Cg0x-D8R1_RSuxDNl9EX7-BfQqc",
+  "refreshToken":"QmFxc1lFREFoSlVnOVpUakZIUXY4b3VnQXVjb09ESkVOM1h5OTVLVXpiNUxWUEZLN2pmY01RWFltSzZqL2FJdmJNcG5rQTVteTBxUWY4ZUhvbzIvUlE9PQ=="
 }
+
+curl http://localhost:3600/projects/ 
 
 =====================================================================npm start
 GET User List

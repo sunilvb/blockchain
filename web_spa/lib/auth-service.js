@@ -11,10 +11,10 @@ module.exports = {
 
   doUserLogin: async (uname , password) => {
     const response = await api.post('/auth', {
-       "email" : "sunilvb@gmail.com",
-       "password" : "sunder74"
+       "email" : uname,
+       "password" : password
     });
-
+    
     return response.data;
     },
 

@@ -28,8 +28,8 @@ projectSchema.findById = function (cb) {
 
 const Project = mongoose.model('Projects', projectSchema);
 
-exports.findByEmail = (email) => {
-    return Project.find({email: email});
+exports.findByCompany = (company) => {
+    return Project.find({company: company});
 };
 exports.findById = (id) => {
     return Project.findById(id)

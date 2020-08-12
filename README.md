@@ -1,4 +1,4 @@
-# Charitably.us
+# YoursCharitably.com
 This is sample application that illustrates how one could use Blockchain and Distributed Ledger Technology (DLT) for building an online charity platform with the following features:
 
 ## Security
@@ -23,7 +23,7 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 
 ## Tech stack
 - JavaScript / NodeJS
-- HyperLedger v2.0
+- HyperLedger v2.x
 - Docker
 - MongoDB
 
@@ -41,6 +41,14 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 - npm install
 - npm start &
 - curl -H "Content-Type: application/json" -X POST -d '{"firstName" : "Sunil","lastName" : "Vishnu","email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/users/
+
+- curl -H "Content-Type: application/json" -X POST -d '{"projectName" : "Project Lunchbox","projectDescription" : "In School lunch for k-5th grade in Uganda","stDate":"5-5-2020","endDate":"10-10-2020"}' http://localhost:3600/projects/
+
+- curl -H "Content-Type: application/json" -X POST -d '{"projectName" : "Hope for the elderly","projectDescription" : "At home care for elderly with disabilities","stDate":"5-5-2020","endDate":"10-10-2020"}' http://localhost:3600/projects/
+
+- curl -H "Content-Type: application/json" -X POST -d '{"email":"sunilvb@gmail.com","password":"sunder74"}' http://localhost:3600/auth/
+- curl http://localhost:3600/projects/ 
+
 
 ### Step-3 [ Start Client Apps - Frontend ]
 
@@ -63,7 +71,7 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 
 cleanup
 
-- docker stop <mongo ct it>
+- docker stop <mongo container id>
 - docker rm /my-mongo
 
 =>

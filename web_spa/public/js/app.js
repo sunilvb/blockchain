@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
 
   // Instantiate api handler
   const api = axios.create({
-    baseURL: 'http://ec2-52-91-217-57.compute-1.amazonaws.com:3000/api',
+    baseURL: 'http://localhost:3000/api',
     timeout: 5000,
   });
 
