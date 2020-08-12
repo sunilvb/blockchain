@@ -27,6 +27,15 @@ With DLT and Blockchain, trus is built-in, you have your copy of the ledger that
 - Docker
 - MongoDB
 
+## Prerequisites
+- Install all packages [Git, cURL, Docker and Docker Compase] as described here :   https://hyperledger-fabric.readthedocs.io/en/release-2.2/prereqs.html
+- Install Samples, Binaries, and Docker Images as descriped here :  https://hyperledger-fabric.readthedocs.io/en/release-2.2/install.html
+- Clone this repo into a folder at the same level as fabric-samples folder
+for example on an AWS EC2 Linux instance, it may look like below:
+--- ec2-user
+   |--- fabric-samples/
+   |--- mywork/
+
 ### STEP-1 [ Start 2 Org Network ]
 
 - cd fabric-samples/commercial-paper
